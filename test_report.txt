@@ -2,17 +2,272 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/App.test.tsx
-  ✓ renders the course name somewhere (33 ms)
+FAIL src/HtmlCss.test.tsx
+  ● Some HTML Elements are added. › There is a header
 
+    TestingLibraryElementError: Unable to find an accessible element with the role "heading"
+
+    Here are the accessible roles:
+
+      banner:
+
+      Name "":
+      [36m<header[39m
+        [33mclass[39m=[32m"App-header"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 with React Hooks and TypeScript - Will Gunter[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+       7 |     test("There is a header", () => {
+       8 |         render(<App />);
+    >  9 |         const header = screen.getByRole("heading");
+         |                               ^
+      10 |         expect(header).toBeInTheDocument();
+      11 |     });
+      12 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:9:31)
+
+  ● Some HTML Elements are added. › There is an image with alt text
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "img"
+
+    Here are the accessible roles:
+
+      banner:
+
+      Name "":
+      [36m<header[39m
+        [33mclass[39m=[32m"App-header"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 with React Hooks and TypeScript - Will Gunter[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      13 |     test("There is an image with alt text", () => {
+      14 |         render(<App />);
+    > 15 |         const image = screen.getByRole("img");
+         |                              ^
+      16 |         expect(image).toBeInTheDocument();
+      17 |         expect(image).toHaveAttribute("alt");
+      18 |     });
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:15:30)
+
+  ● Some HTML Elements are added. › There is a list with at least three elements
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "list"
+
+    Here are the accessible roles:
+
+      banner:
+
+      Name "":
+      [36m<header[39m
+        [33mclass[39m=[32m"App-header"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 with React Hooks and TypeScript - Will Gunter[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      20 |     test("There is a list with at least three elements", () => {
+      21 |         render(<App />);
+    > 22 |         const list = screen.getByRole("list");
+         |                             ^
+      23 |         expect(list).toBeInTheDocument();
+      24 |         expect(list.children.length).toBeGreaterThanOrEqual(3);
+      25 |     });
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:22:29)
+
+  ● Some Bootstrap Elements are added › There is one bootstrap button with the text 'Log Hello World'
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Log Hello World/i`
+
+    Here are the accessible roles:
+
+      banner:
+
+      Name "":
+      [36m<header[39m
+        [33mclass[39m=[32m"App-header"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 with React Hooks and TypeScript - Will Gunter[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      39 |     test("There is one bootstrap button with the text 'Log Hello World'", () => {
+      40 |         render(<App />);
+    > 41 |         const button = screen.getByRole("button", { name: /Log Hello World/i });
+         |                               ^
+      42 |         expect(button).toBeInTheDocument();
+      43 |         expect(button).toHaveClass("btn");
+      44 |         expect(button).toHaveClass("btn-primary");
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:41:31)
+
+  ● Some Bootstrap Elements are added › Clicking the bootstrap button logs 'Hello World!'
+
+    TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Log Hello World/i`
+
+    Here are the accessible roles:
+
+      banner:
+
+      Name "":
+      [36m<header[39m
+        [33mclass[39m=[32m"App-header"[39m
+      [36m/>[39m
+
+      --------------------------------------------------
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 with React Hooks and TypeScript - Will Gunter[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      54 |         const consoleSpy = jest.spyOn(console, "log");
+      55 |         render(<App />);
+    > 56 |         const button = screen.getByRole("button", { name: /Log Hello World/i });
+         |                               ^
+      57 |         userEvent.click(button);
+      58 |         expect(consoleSpy).toHaveBeenCalledWith("Hello World!");
+      59 |     });
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:56:31)
+
+PASS src/App.test.tsx
 ----------|---------|----------|---------|---------|-------------------
 File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------|---------|----------|---------|---------|-------------------
 All files |     100 |      100 |     100 |     100 |                   
  App.tsx  |     100 |      100 |     100 |     100 |                   
 ----------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       5 failed, 3 passed, 8 total
 Snapshots:   0 total
-Time:        1.403 s
+Time:        1.908 s
 Ran all test suites.
