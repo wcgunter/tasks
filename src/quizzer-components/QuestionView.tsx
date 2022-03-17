@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Quiz } from "../quizzer_interfaces/Quiz";
 import { Question } from "../quizzer_interfaces/question";
-import { QuestionList } from "./QuestionList";
 import { MultipleChoiceQuestion } from "./MultipleChoice";
 import { ShortAnswer } from "./ShortAnswer";
 
@@ -21,25 +19,24 @@ export function QuestionView({
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <p>{question.body}</p>
-                </Col>
-                <Col>
-                    {question.type === "multiple_choice" ? (
-                        <MultipleChoiceQuestion
-                            options={question.options}
-                            expectedAnswer={question.expected}
-                            addPoints={addPoints}
-                            points={question.points}
-                        ></MultipleChoiceQuestion>
-                    ) : (
-                        <ShortAnswer
-                            expectedAnswer={question.expected}
-                            addPoints={addPoints}
-                            points={question.points}
-                        ></ShortAnswer>
-                    )}
-                </Col>
+                <p>Worth {question.points} points</p>
+                <h4>{question.body}</h4>
+            </Row>
+            <Row>
+                {question.type === "multiple_choice" ? (
+                    <MultipleChoiceQuestion
+                        options={question.options}
+                        expectedAnswer={question.expected}
+                        addPoints={addPoints}
+                        points={question.points}
+                    ></MultipleChoiceQuestion>
+                ) : (
+                    <ShortAnswer
+                        expectedAnswer={question.expected}
+                        addPoints={addPoints}
+                        points={question.points}
+                    ></ShortAnswer>
+                )}
             </Row>
         </Container>
     );

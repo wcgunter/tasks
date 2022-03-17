@@ -36,6 +36,13 @@ function App(): JSX.Element {
                     Users can enter or choose an answer for a quiz question, and
                     be told if they are correct
                 </li>
+                <li>Users can see how many total points they have earned</li>
+                <li>
+                    Users can select a specific quiz to see the questions,
+                    including the question’s name, body, and points
+                </li>
+                <li>Users can delete an existing quiz</li>
+                <li>Users can edit the questions and fields of a quiz</li>
             </ul>
             <img src="https://i.imgur.com/1yAc0ir.png"></img>
             <header className="App-header">Tasks - Will Gunter</header>

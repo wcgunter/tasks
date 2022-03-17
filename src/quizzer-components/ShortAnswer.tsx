@@ -18,10 +18,13 @@ export function ShortAnswer({
 
     function updateGivenAnswer(event: ChangeEvent) {
         setGivenAnswer(event.target.value);
+        if (event.target.value === expectedAnswer) {
+            addPoints(points);
+        }
     }
     return (
         <div>
-            <h4>Short Answer Question</h4>
+            <h6>Short Answer Question</h6>
             <Form.Group controlId="formGivenAnswer">
                 <Form.Label>Check Answer</Form.Label>
                 <Form.Control
