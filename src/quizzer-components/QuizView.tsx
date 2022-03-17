@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Quiz } from "../quizzer_interfaces/Quiz";
 import { Question } from "../quizzer_interfaces/question";
 import { QuestionList } from "./QuestionList";
@@ -14,6 +14,11 @@ function publishQuestion(question: Question, published: boolean): Question {
 export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
     const [questions, setQuestions] = useState<Question[]>(quiz.questions);
     const [points, setPoints] = useState<number>(0);
+    const [visible, setVisible] = useState<boolean>(false);
+
+    function flipVisibility(): void {
+        setVisible(!visible);
+    }
 
     function addPoints(addedPoints: number) {
         setPoints(points + addedPoints);
@@ -55,20 +60,22 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <p>{quiz.description}</p>
-                    <p>Number of Questions: {quiz.questions.length}</p>
-                </Col>
+                <p>{quiz.description}</p>
+                <p>Number of Questions: {quiz.questions.length}</p>
+                <Button onClick={flipVisibility}>Open/Close Quiz</Button>
             </Row>
-            <Row>
-                <QuestionList
-                    questions={questions}
-                    editQuestion={editQuestion}
-                    deleteQuestion={deleteQuestion}
-                    setQuestionPublished={setQuestionPublished}
-                    addPoints={addPoints}
-                ></QuestionList>
-            </Row>
+            {visible && (
+                <Row>
+                    <p>Current Points: {points}, Possible Points: TBD</p>
+                    <QuestionList
+                        questions={questions}
+                        editQuestion={editQuestion}
+                        deleteQuestion={deleteQuestion}
+                        setQuestionPublished={setQuestionPublished}
+                        addPoints={addPoints}
+                    ></QuestionList>
+                </Row>
+            )}
         </Container>
     );
 }

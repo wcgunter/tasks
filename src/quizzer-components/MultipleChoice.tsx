@@ -20,11 +20,14 @@ export function MultipleChoiceQuestion({
 
     function updateAnswer(event: ChangeEvent) {
         setAnswer(event.target.value);
+        if (event.target.value === expectedAnswer) {
+            addPoints(points);
+        }
     }
 
     return (
         <div>
-            <h4>Multiple Choice Question</h4>
+            <h6>Multiple Choice Question</h6>
             <Form.Label>Select an Answer:</Form.Label>
             <Form.Select value={answer} onChange={updateAnswer}>
                 {options.map(

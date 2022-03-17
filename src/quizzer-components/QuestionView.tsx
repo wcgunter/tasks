@@ -21,25 +21,24 @@ export function QuestionView({
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <p>{question.body}</p>
-                </Col>
-                <Col>
-                    {question.type === "multiple_choice" ? (
-                        <MultipleChoiceQuestion
-                            options={question.options}
-                            expectedAnswer={question.expected}
-                            addPoints={addPoints}
-                            points={question.points}
-                        ></MultipleChoiceQuestion>
-                    ) : (
-                        <ShortAnswer
-                            expectedAnswer={question.expected}
-                            addPoints={addPoints}
-                            points={question.points}
-                        ></ShortAnswer>
-                    )}
-                </Col>
+                <p>Worth {question.points} points</p>
+                <h4>{question.body}</h4>
+            </Row>
+            <Row>
+                {question.type === "multiple_choice" ? (
+                    <MultipleChoiceQuestion
+                        options={question.options}
+                        expectedAnswer={question.expected}
+                        addPoints={addPoints}
+                        points={question.points}
+                    ></MultipleChoiceQuestion>
+                ) : (
+                    <ShortAnswer
+                        expectedAnswer={question.expected}
+                        addPoints={addPoints}
+                        points={question.points}
+                    ></ShortAnswer>
+                )}
             </Row>
         </Container>
     );
