@@ -22,11 +22,231 @@ PASS src/components/RevealAnswer.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
 PASS src/bad-components/ShoveBox.test.tsx
 PASS src/quizzer/Quizzer.test.tsx
-PASS src/App.test.tsx
+FAIL src/App.test.tsx
+  ● renders the course name somewhere
+
+    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"Quiz-header"[39m
+          [36m>[39m
+            [0mQuizzer[0m
+          [36m</header>[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mQuizzer[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"vstack gap-3"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"container"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<h3>[39m
+                          [0mMath Quiz[0m
+                        [36m</h3>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mA quick quiz with math questions.[0m
+                      [36m</p>[39m
+                      [36m<p>[39m
+                        [0mNumber of Questions: [0m
+                        [0m3[0m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mOpen/Close Quiz[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mEdit Mode[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"container"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<h3>[39m
+                          [0mEnglish Quiz[0m
+                        [36m</h3>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mA quick quiz with english questions.[0m
+                      [36m</p>[39m
+                      [36m<p>[39m
+                        [0mNumber of Questions: [0m
+                        [0m3[0m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mOpen/Close Quiz[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mEdit Mode[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<h6>[39m
+            [0mCompleted Features[0m
+          [36m</h6>[39m
+          [36m<ul>[39m
+            [36m<li>[39m
+              [0mUsers can see a list of quizzes, including the quizzes title, description, and how many questions it has[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mQuiz questions can be of AT LEAST two types: a short answer question or multiple choice question[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can enter or choose an answer for a quiz question, and be told if they are correct[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can see how many total points they have earned[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can select a specific quiz to see the questions, including the question’s name, body, and points[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can delete an existing quiz[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can edit the questions and fields of a quiz[0m
+            [36m</li>[39m
+          [36m</ul>[39m
+          [36m<img[39m
+            [33msrc[39m=[32m"https://i.imgur.com/1yAc0ir.png"[39m
+          [36m/>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mTasks - Will Gunter[0m
+          [36m</header>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mCheck Answer[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+                [33mfor[39m=[32m"formGivenAnswer"[39m
+              [36m>[39m
+                [0mCheck Answer[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mid[39m=[32m"formGivenAnswer"[39m
+                [33mplaceholder[39m=[32m"Enter Answer Here"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mResult: [0m
+              [0m❌[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mGive Attempts[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+                [33mfor[39m=[32m"formAttempts"[39m
+              [36m>[39m
+                [0mRequest Attempts[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mid[39m=[32m"formAttempts"[39m
+                [33mplaceholder[39m=[32m"Enter Request Here"[39m
+                [33mtype[39m=[32m"number"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mRequested Attempts:[0m
+              [0m [0m
+              [0mEnter a valid request.[0m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mCurrent Attempts: [0m
+              [0m3[0m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mname[39m=[32m"use"[39m
+       ...
+
+       5 | test("renders the course name somewhere", () => {
+       6 |     render(<App />);
+    >  7 |     const linkElement = screen.getByText(/CISC275/i);
+         |                                ^
+       8 |     expect(linkElement).toBeInTheDocument();
+       9 | });
+      10 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/App.test.tsx:7:32)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
 -----------------------------|---------|----------|---------|---------|-------------------
 File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------|---------|----------|---------|---------|-------------------
-All files                    |     100 |    98.83 |     100 |     100 |                   
+All files                    |   83.91 |    83.65 |   78.36 |   83.98 |                   
  src                         |     100 |      100 |     100 |     100 |                   
   App.tsx                    |     100 |      100 |     100 |     100 |                   
   arrays.ts                  |     100 |      100 |     100 |     100 |                   
@@ -54,12 +274,246 @@ All files                    |     100 |    98.83 |     100 |     100 |
  src/interfaces              |       0 |        0 |       0 |       0 |                   
   answer.ts                  |       0 |        0 |       0 |       0 |                   
   question.ts                |       0 |        0 |       0 |       0 |                   
- src/quizzer                 |     100 |      100 |     100 |     100 |                   
-  Quizzer.tsx                |     100 |      100 |     100 |     100 |                   
+ src/quizzer                 |      50 |        0 |   33.33 |   57.14 |                   
+  Quizzer.tsx                |      50 |        0 |   33.33 |   57.14 | 17-23             
+ src/quizzer-components      |   14.28 |     12.5 |    8.33 |   14.28 |                   
+  MultipleChoice.tsx         |       0 |        0 |       0 |       0 | 19-35             
+  QuestionEditor.tsx         |       0 |        0 |       0 |       0 | 14-131            
+  QuestionList.tsx           |       0 |      100 |       0 |       0 | 13-16             
+  QuestionView.tsx           |       0 |        0 |       0 |       0 | 14                
+  QuizEditor.tsx             |       0 |      100 |       0 |       0 | 22-86             
+  QuizList.tsx               |     100 |      100 |     100 |     100 |                   
+  QuizView.tsx               |    62.5 |       50 |      25 |    62.5 | 23-31             
+  ShortAnswer.tsx            |       0 |        0 |       0 |       0 | 17-25             
+ src/quizzer_interfaces      |       0 |        0 |       0 |       0 |                   
+  Quiz.ts                    |       0 |        0 |       0 |       0 |                   
+  question.ts                |       0 |        0 |       0 |       0 |                   
 -----------------------------|---------|----------|---------|---------|-------------------
+Summary of all failing tests
+FAIL src/App.test.tsx
+  ● renders the course name somewhere
 
-Test Suites: 21 passed, 21 total
-Tests:       135 passed, 135 total
+    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"Quiz-header"[39m
+          [36m>[39m
+            [0mQuizzer[0m
+          [36m</header>[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mQuizzer[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"vstack gap-3"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"container"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<h3>[39m
+                          [0mMath Quiz[0m
+                        [36m</h3>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mA quick quiz with math questions.[0m
+                      [36m</p>[39m
+                      [36m<p>[39m
+                        [0mNumber of Questions: [0m
+                        [0m3[0m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mOpen/Close Quiz[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mEdit Mode[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"container"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<h3>[39m
+                          [0mEnglish Quiz[0m
+                        [36m</h3>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mA quick quiz with english questions.[0m
+                      [36m</p>[39m
+                      [36m<p>[39m
+                        [0mNumber of Questions: [0m
+                        [0m3[0m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mOpen/Close Quiz[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mEdit Mode[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<h6>[39m
+            [0mCompleted Features[0m
+          [36m</h6>[39m
+          [36m<ul>[39m
+            [36m<li>[39m
+              [0mUsers can see a list of quizzes, including the quizzes title, description, and how many questions it has[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mQuiz questions can be of AT LEAST two types: a short answer question or multiple choice question[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can enter or choose an answer for a quiz question, and be told if they are correct[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can see how many total points they have earned[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can select a specific quiz to see the questions, including the question’s name, body, and points[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can delete an existing quiz[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mUsers can edit the questions and fields of a quiz[0m
+            [36m</li>[39m
+          [36m</ul>[39m
+          [36m<img[39m
+            [33msrc[39m=[32m"https://i.imgur.com/1yAc0ir.png"[39m
+          [36m/>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mTasks - Will Gunter[0m
+          [36m</header>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mCheck Answer[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+                [33mfor[39m=[32m"formGivenAnswer"[39m
+              [36m>[39m
+                [0mCheck Answer[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mid[39m=[32m"formGivenAnswer"[39m
+                [33mplaceholder[39m=[32m"Enter Answer Here"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mResult: [0m
+              [0m❌[0m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mGive Attempts[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+                [33mfor[39m=[32m"formAttempts"[39m
+              [36m>[39m
+                [0mRequest Attempts[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mid[39m=[32m"formAttempts"[39m
+                [33mplaceholder[39m=[32m"Enter Request Here"[39m
+                [33mtype[39m=[32m"number"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mRequested Attempts:[0m
+              [0m [0m
+              [0mEnter a valid request.[0m
+            [36m</div>[39m
+            [36m<div>[39m
+              [0mCurrent Attempts: [0m
+              [0m3[0m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mname[39m=[32m"use"[39m
+       ...
+
+       5 | test("renders the course name somewhere", () => {
+       6 |     render(<App />);
+    >  7 |     const linkElement = screen.getByText(/CISC275/i);
+         |                                ^
+       8 |     expect(linkElement).toBeInTheDocument();
+       9 | });
+      10 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/App.test.tsx:7:32)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 1 failed, 20 passed, 21 total
+Tests:       1 failed, 134 passed, 135 total
 Snapshots:   0 total
-Time:        15.575 s
+Time:        17.932 s
 Ran all test suites.
