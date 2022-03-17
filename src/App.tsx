@@ -20,10 +20,25 @@ import { Quizzer } from "./quizzer/Quizzer";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript - Will Gunter
-            </header>
+            <header className="Quiz-header">Quizzer</header>
             <Quizzer></Quizzer>
+            <h6>Completed Features</h6>
+            <ul>
+                <li>
+                    Users can see a list of quizzes, including the quizzes
+                    title, description, and how many questions it has
+                </li>
+                <li>
+                    Quiz questions can be of AT LEAST two types: a short answer
+                    question or multiple choice question
+                </li>
+                <li>
+                    Users can enter or choose an answer for a quiz question, and
+                    be told if they are correct
+                </li>
+            </ul>
+            <img src="https://i.imgur.com/1yAc0ir.png"></img>
+            <header className="App-header">Tasks - Will Gunter</header>
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>
