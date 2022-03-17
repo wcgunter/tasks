@@ -5,15 +5,9 @@ import { QuestionView } from "./QuestionView";
 
 export function QuestionList({
     questions,
-    editQuestion,
-    deleteQuestion,
-    setQuestionPublished,
     addPoints
 }: {
     questions: Question[];
-    editQuestion: (id: number, newQuestion: Question) => void;
-    deleteQuestion: (id: number) => void;
-    setQuestionPublished: (id: number, published: boolean) => void;
     addPoints: (addedPoints: number) => void;
 }): JSX.Element {
     return (

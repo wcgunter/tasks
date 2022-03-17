@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Quiz } from "../quizzer_interfaces/Quiz";
 import { Question } from "../quizzer_interfaces/question";
-import { QuestionList } from "./QuestionList";
 import { MultipleChoiceQuestion } from "./MultipleChoice";
 import { ShortAnswer } from "./ShortAnswer";
 

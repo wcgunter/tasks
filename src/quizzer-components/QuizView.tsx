@@ -3,18 +3,21 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Quiz } from "../quizzer_interfaces/Quiz";
 import { Question } from "../quizzer_interfaces/question";
 import { QuestionList } from "./QuestionList";
+import { QuizEditor } from "./QuizEditor";
 
-function publishQuestion(question: Question, published: boolean): Question {
-    return {
-        ...question,
-        published: published
-    };
-}
-
-export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
+export function QuizView({
+    quiz,
+    editQuiz,
+    deleteQuiz
+}: {
+    quiz: Quiz;
+    editQuiz: (id: number, newQuiz: Quiz) => void;
+    deleteQuiz: (id: number) => void;
+}): JSX.Element {
     const [questions, setQuestions] = useState<Question[]>(quiz.questions);
     const [points, setPoints] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>(false);
+    const [editing, setEditing] = useState<boolean>(false);
 
     function flipVisibility(): void {
         setVisible(!visible);
@@ -24,35 +27,20 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
         setPoints(points + addedPoints);
     }
 
-    function setQuestionPublished(id: number, published: boolean) {
-        setQuestions(
-            questions.map(
-                (question: Question): Question =>
-                    id === question.id
-                        ? publishQuestion(question, published)
-                        : question
-            )
-        );
+    function changeEditing() {
+        setEditing(!editing);
     }
 
-    function editQuestion(id: number, newQuestion: Question) {
-        setQuestions(
-            questions.map(
-                (question: Question): Question =>
-                    question.id === id ? newQuestion : question
-            )
-        );
-    }
-
-    function deleteQuestion(id: number) {
-        setQuestions(
-            questions.filter(
-                (question: Question): boolean => question.id !== id
-            )
-        );
-    }
-
-    return (
+    return editing ? (
+        <QuizEditor
+            changeEditing={changeEditing}
+            quiz={quiz}
+            editQuiz={editQuiz}
+            deleteQuiz={deleteQuiz}
+            setQuestions={setQuestions}
+            questions={questions}
+        ></QuizEditor>
+    ) : (
         <Container>
             <Row>
                 <Col>
@@ -63,15 +51,13 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
                 <p>{quiz.description}</p>
                 <p>Number of Questions: {quiz.questions.length}</p>
                 <Button onClick={flipVisibility}>Open/Close Quiz</Button>
+                <Button onClick={changeEditing}>Edit Mode</Button>
             </Row>
             {visible && (
                 <Row>
                     <p>Current Points: {points}, Possible Points: TBD</p>
                     <QuestionList
                         questions={questions}
-                        editQuestion={editQuestion}
-                        deleteQuestion={deleteQuestion}
-                        setQuestionPublished={setQuestionPublished}
                         addPoints={addPoints}
                     ></QuestionList>
                 </Row>
