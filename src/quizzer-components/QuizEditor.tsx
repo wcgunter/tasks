@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Container, Row, Col, Form } from "react-bootstrap";
 import { Question } from "../quizzer_interfaces/question";
 import { Quiz } from "../quizzer_interfaces/Quiz";
+import { AddQuestionModal } from "./AddQuestionModal";
 import { QuestionEditor } from "./QuestionEditor";
 
 export function QuizEditor({
@@ -21,6 +22,10 @@ export function QuizEditor({
 }): JSX.Element {
     const [title, setTitle] = useState<string>(quiz.title);
     const [description, setDescription] = useState<string>(quiz.description);
+    const [showAddModal, setShowAddModal] = useState(false);
+
+    const handleCloseAddModal = () => setShowAddModal(false);
+    const handleShowAddModal = () => setShowAddModal(true);
 
     function save() {
         editQuiz(quiz.id, {
@@ -34,6 +39,15 @@ export function QuizEditor({
 
     function cancel() {
         changeEditing();
+    }
+
+    function addQuestion(newQuestion: Question) {
+        const existing = questions.find(
+            (question: Question): boolean => question.id === newQuestion.id
+        );
+        if (existing === undefined) {
+            setQuestions([...questions, newQuestion]);
+        }
     }
 
     return (
@@ -75,6 +89,21 @@ export function QuizEditor({
                         questions={questions}
                         setQuestions={setQuestions}
                     ></QuestionEditor>
+                    {/*Create New Question Modal*/}
+                    <div>
+                        <Button
+                            variant="success"
+                            className="m-4"
+                            onClick={handleShowAddModal}
+                        >
+                            Add New Question
+                        </Button>
+                        <AddQuestionModal
+                            show={showAddModal}
+                            handleClose={handleCloseAddModal}
+                            addQuestion={addQuestion}
+                        ></AddQuestionModal>
+                    </div>
                     {/* Save/Cancel */}
                     <Button onClick={save} variant="success" className="me-4">
                         Save

@@ -24,6 +24,31 @@ export function QuestionNameEditor({
     );
 }
 
+export function QuestionDeleteEditor({
+    question,
+    setQuestions,
+    questions
+}: {
+    question: Question;
+    setQuestions: (questions: Question[]) => void;
+    questions: Question[];
+}): JSX.Element {
+    return (
+        <button
+            onClick={() =>
+                setQuestions(
+                    questions.filter(
+                        (questionF: Question): boolean =>
+                            questionF.id !== question.id
+                    )
+                )
+            }
+        >
+            Delete Question
+        </button>
+    );
+}
+
 export function QuestionBodyEditor({
     question,
     setQuestion
@@ -104,6 +129,26 @@ export function QuestionOptionsEditor({
                 setQuestion(question.id, {
                     ...question,
                     options: event.target.value.split(",")
+                })
+            }
+        />
+    );
+}
+
+export function QuestionPublishedEditor({
+    question,
+    setQuestion
+}: QuestionProps): JSX.Element {
+    return (
+        <Form.Check
+            type="switch"
+            id="is-published-check"
+            label="Published?"
+            checked={question.published}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setQuestion(question.id, {
+                    ...question,
+                    published: event.target.checked
                 })
             }
         />
@@ -205,6 +250,25 @@ export function QuestionEditor({
                                         question={question}
                                         setQuestion={setQuestion}
                                     ></QuestionPointsEditor>
+                                </Col>
+                            </Row>
+                            {/* Question Published */}
+                            <Row>
+                                <Col>
+                                    <QuestionPublishedEditor
+                                        question={question}
+                                        setQuestion={setQuestion}
+                                    ></QuestionPublishedEditor>
+                                </Col>
+                            </Row>
+                            {/* Delete Question */}
+                            <Row>
+                                <Col>
+                                    <QuestionDeleteEditor
+                                        question={question}
+                                        setQuestions={setQuestions}
+                                        questions={questions}
+                                    ></QuestionDeleteEditor>
                                 </Col>
                             </Row>
                         </Container>

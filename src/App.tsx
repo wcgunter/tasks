@@ -43,9 +43,19 @@ function App(): JSX.Element {
                 </li>
                 <li>Users can delete an existing quiz</li>
                 <li>Users can edit the questions and fields of a quiz</li>
+                <li>Users can publish or unpublish a question</li>
+                <li>
+                    Users can filter the questions in a list so that only
+                    published questions are shown
+                </li>
+                <li>Users can delete an existing quiz question</li>
+                <li>Users can add a new quiz</li>
+                <li>Users can add a new quiz question</li>
             </ul>
             <img src="https://i.imgur.com/1yAc0ir.png"></img>
-            <header className="App-header">Tasks - Will Gunter</header>
+            <header className="App-header">
+                Tasks - Will Gunter - CISC275
+            </header>
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>

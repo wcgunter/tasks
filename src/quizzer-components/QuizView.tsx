@@ -18,6 +18,11 @@ export function QuizView({
     const [points, setPoints] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>(false);
     const [editing, setEditing] = useState<boolean>(false);
+    const [showUnPublished, setShowUnPublished] = useState<boolean>(true);
+
+    function flipShowUnPublished(): void {
+        setShowUnPublished(!showUnPublished);
+    }
 
     function flipVisibility(): void {
         setVisible(!visible);
@@ -50,15 +55,21 @@ export function QuizView({
             <Row>
                 <p>{quiz.description}</p>
                 <p>Number of Questions: {quiz.questions.length}</p>
+            </Row>
+            <Row>
                 <Button onClick={flipVisibility}>Open/Close Quiz</Button>
                 <Button onClick={changeEditing}>Edit Mode</Button>
             </Row>
             {visible && (
                 <Row>
                     <p>Current Points: {points}, Possible Points: TBD</p>
+                    <Button onClick={flipShowUnPublished}>
+                        Filter Published/Unpublished
+                    </Button>
                     <QuestionList
                         questions={questions}
                         addPoints={addPoints}
+                        showUnPublished={showUnPublished}
                     ></QuestionList>
                 </Row>
             )}
