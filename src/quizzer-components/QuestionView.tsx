@@ -6,12 +6,14 @@ import { ShortAnswer } from "./ShortAnswer";
 
 export function QuestionView({
     question,
-    addPoints
+    addPoints,
+    showUnPublished
 }: {
     question: Question;
     addPoints: (addedPoints: number) => void;
+    showUnPublished: boolean;
 }): JSX.Element {
-    return (
+    return question.published || showUnPublished ? (
         <Container>
             <Row>
                 <Col>
@@ -39,5 +41,7 @@ export function QuestionView({
                 )}
             </Row>
         </Container>
+    ) : (
+        <div></div>
     );
 }

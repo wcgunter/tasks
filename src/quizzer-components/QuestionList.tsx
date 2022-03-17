@@ -5,10 +5,12 @@ import { QuestionView } from "./QuestionView";
 
 export function QuestionList({
     questions,
-    addPoints
+    addPoints,
+    showUnPublished
 }: {
     questions: Question[];
     addPoints: (addedPoints: number) => void;
+    showUnPublished: boolean;
 }): JSX.Element {
     return (
         <Stack gap={3}>
@@ -17,6 +19,7 @@ export function QuestionList({
                     <QuestionView
                         question={question}
                         addPoints={addPoints}
+                        showUnPublished={showUnPublished}
                     ></QuestionView>
                 </div>
             ))}
