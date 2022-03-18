@@ -50,7 +50,7 @@ export function AddQuizModal({
                     Close
                 </Button>
                 <Button variant="primary" onClick={saveChanges}>
-                    Save Changes
+                    Save New Quiz
                 </Button>
             </Modal.Footer>
         </Modal>

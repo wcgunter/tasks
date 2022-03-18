@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Question } from "../quizzer_interfaces/question";
-import { MultipleChoiceQuestion } from "./MultipleChoice";
+import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
 import { ShortAnswer } from "./ShortAnswer";
 
 export function QuestionView({
