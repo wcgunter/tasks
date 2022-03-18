@@ -15,10 +15,18 @@ export function ShortAnswer({
     addPoints: (addedPoints: number) => void;
 }): JSX.Element {
     const [givenAnswer, setGivenAnswer] = useState<string>("");
+    const [lastCorrect, setLastCorrect] = useState<boolean>(false);
 
     function updateGivenAnswer(event: ChangeEvent) {
         setGivenAnswer(event.target.value);
+        if (event.target.value !== expectedAnswer) {
+            if (lastCorrect === true) {
+                addPoints(-points);
+                setLastCorrect(false);
+            }
+        }
         if (event.target.value === expectedAnswer) {
+            setLastCorrect(true);
             addPoints(points);
         }
     }

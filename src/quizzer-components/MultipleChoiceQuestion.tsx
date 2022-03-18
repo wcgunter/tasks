@@ -17,10 +17,18 @@ export function MultipleChoiceQuestion({
     points: number;
 }): JSX.Element {
     const [answer, setAnswer] = useState<string>(options[0]);
+    const [lastCorrect, setLastCorrect] = useState<boolean>(false);
 
     function updateAnswer(event: ChangeEvent) {
         setAnswer(event.target.value);
+        if (event.target.value !== expectedAnswer) {
+            if (lastCorrect === true) {
+                addPoints(-points);
+                setLastCorrect(false);
+            }
+        }
         if (event.target.value === expectedAnswer) {
+            setLastCorrect(true);
             addPoints(points);
         }
     }

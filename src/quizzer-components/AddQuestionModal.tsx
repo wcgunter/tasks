@@ -53,7 +53,7 @@ export function AddQuestionModal({
                     Close
                 </Button>
                 <Button variant="primary" onClick={saveChanges}>
-                    Save Changes
+                    Save New Question
                 </Button>
             </Modal.Footer>
         </Modal>
