@@ -5,8 +5,11 @@
 PASS src/nested.test.ts
 PASS src/arrays.test.ts
 PASS src/objects.test.ts
+PASS src/quizzer/Quizzer.test.tsx
 PASS src/components/StartAttempt.test.tsx
 PASS src/components/TwoDice.test.tsx
+PASS src/quizzer-components/ShortAnswer.test.tsx
+PASS src/quizzer-components/MultipleChoiceQuestion.test.tsx
 PASS src/form-components/MultipleChoiceQuestion.test.tsx
 PASS src/bad-components/ChooseTeam.test.tsx
 PASS src/bad-components/DoubleHalf.test.tsx
@@ -21,12 +24,11 @@ PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
 PASS src/bad-components/ShoveBox.test.tsx
-PASS src/quizzer/Quizzer.test.tsx
 PASS src/App.test.tsx
 -----------------------------|---------|----------|---------|---------|-------------------
 File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------|---------|----------|---------|---------|-------------------
-All files                    |   76.63 |    77.67 |   70.68 |   77.56 |                   
+All files                    |   96.39 |       95 |   94.76 |   96.29 |                   
  src                         |     100 |      100 |     100 |     100 |                   
   App.tsx                    |     100 |      100 |     100 |     100 |                   
   arrays.ts                  |     100 |      100 |     100 |     100 |                   
@@ -54,26 +56,26 @@ All files                    |   76.63 |    77.67 |   70.68 |   77.56 |
  src/interfaces              |       0 |        0 |       0 |       0 |                   
   answer.ts                  |       0 |        0 |       0 |       0 |                   
   question.ts                |       0 |        0 |       0 |       0 |                   
- src/quizzer                 |   41.17 |        0 |      20 |      50 |                   
-  Quizzer.tsx                |   41.17 |        0 |      20 |      50 | 23-37             
- src/quizzer-components      |   13.33 |     9.09 |    7.69 |   13.69 |                   
-  AddQuestionModal.tsx       |       0 |      100 |       0 |       0 | 14-46             
-  AddQuizModal.tsx           |      40 |      100 |   33.33 |      40 | 17-24,43          
-  MultipleChoice.tsx         |       0 |        0 |       0 |       0 | 19-35             
-  QuestionEditor.tsx         |       0 |        0 |       0 |       0 | 14-176            
-  QuestionList.tsx           |       0 |      100 |       0 |       0 | 15-18             
-  QuestionView.tsx           |       0 |        0 |       0 |       0 | 16                
-  QuizEditor.tsx             |       0 |        0 |       0 |       0 | 23-115            
+ src/quizzer                 |     100 |       75 |     100 |     100 |                   
+  Quizzer.tsx                |     100 |       75 |     100 |     100 | 36                
+ src/quizzer-components      |    86.2 |    86.66 |   80.76 |   85.88 |                   
+  AddQuestionModal.tsx       |      80 |      100 |   66.66 |      80 | 46                
+  AddQuizModal.tsx           |      80 |      100 |   66.66 |      80 | 43                
+  MultipleChoiceQuestion.tsx |     100 |     87.5 |     100 |     100 | 25                
+  QuestionEditor.tsx         |   76.19 |      100 |   76.19 |   76.19 | 77,94,112,129,149 
+  QuestionList.tsx           |     100 |      100 |     100 |     100 |                   
+  QuestionView.tsx           |     100 |    83.33 |     100 |     100 | 16                
+  QuizEditor.tsx             |   94.44 |       50 |      90 |   93.75 | 83                
   QuizList.tsx               |     100 |      100 |     100 |     100 |                   
-  QuizView.tsx               |      60 |       50 |      20 |      60 | 24-36             
-  ShortAnswer.tsx            |       0 |        0 |       0 |       0 | 17-25             
+  QuizView.tsx               |      80 |      100 |      60 |      80 | 24,32             
+  ShortAnswer.tsx            |   81.81 |     87.5 |     100 |   81.81 | 24-25             
  src/quizzer_interfaces      |       0 |        0 |       0 |       0 |                   
   Quiz.ts                    |       0 |        0 |       0 |       0 |                   
   question.ts                |       0 |        0 |       0 |       0 |                   
 -----------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 21 passed, 21 total
-Tests:       135 passed, 135 total
+Test Suites: 23 passed, 23 total
+Tests:       159 passed, 159 total
 Snapshots:   0 total
-Time:        15.741 s
+Time:        15.526 s
 Ran all test suites.
