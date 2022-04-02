@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
@@ -33,6 +33,14 @@ export function MultipleChoiceQuestion({
         }
     }
 
+    function resetAnswer() {
+        setAnswer(options[0]);
+        if (lastCorrect === true) {
+            addPoints(-points);
+            setLastCorrect(false);
+        }
+    }
+
     return (
         <div>
             <h6>Multiple Choice Question</h6>
@@ -46,7 +54,12 @@ export function MultipleChoiceQuestion({
                     )
                 )}
             </Form.Select>
-            {answer === expectedAnswer ? "Status: ✔️" : "Status: ❌"}
+            <div>
+                {answer === expectedAnswer ? "Correct?: ✔️" : "Correct?: ❌"}
+            </div>
+            <Button variant="warning" onClick={resetAnswer}>
+                Reset Answer
+            </Button>
         </div>
     );
 }

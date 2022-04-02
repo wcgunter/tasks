@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
@@ -30,6 +30,15 @@ export function ShortAnswer({
             addPoints(points);
         }
     }
+
+    function resetAnswer() {
+        setGivenAnswer("");
+        if (lastCorrect === true) {
+            addPoints(-points);
+            setLastCorrect(false);
+        }
+    }
+
     return (
         <div>
             <h6>Short Answer Question</h6>
@@ -41,7 +50,14 @@ export function ShortAnswer({
                     placeholder="Enter Answer Here"
                 ></Form.Control>
             </Form.Group>
-            <div>Result: {givenAnswer === expectedAnswer ? "✔️" : "❌"}</div>
+            <div>
+                {givenAnswer === expectedAnswer
+                    ? "Correct?: ✔️"
+                    : "Correct?: ❌"}
+            </div>
+            <Button variant="warning" onClick={resetAnswer}>
+                Reset Answer
+            </Button>
         </div>
     );
 }
