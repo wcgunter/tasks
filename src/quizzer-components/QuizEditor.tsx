@@ -37,10 +37,6 @@ export function QuizEditor({
         changeEditing();
     }
 
-    function cancel() {
-        changeEditing();
-    }
-
     function addQuestion(newQuestion: Question) {
         const existing = questions.find(
             (question: Question): boolean => question.id === newQuestion.id
@@ -107,9 +103,6 @@ export function QuizEditor({
                     {/* Save/Cancel/Delete Buttons */}
                     <Button onClick={save} variant="success" className="me-4">
                         Save Quiz
-                    </Button>
-                    <Button onClick={cancel} variant="warning" className="me-4">
-                        Cancel Quiz
                     </Button>
                     <Button
                         onClick={() => deleteQuiz(quiz.id)}
