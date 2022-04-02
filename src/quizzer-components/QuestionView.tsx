@@ -22,7 +22,7 @@ export function QuestionView({
             </Row>
             <Row>
                 <Col>
-                    <h6 data-testid="question-id">{question.id}</h6>
+                    <h6 data-testid="question-id">ID: {question.id}</h6>
                 </Col>
             </Row>
             <Row>
