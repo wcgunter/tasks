@@ -67,23 +67,6 @@ export function QuestionBodyEditor({
     );
 }
 
-export function QuestionTypeEditor({
-    question,
-    setQuestion
-}: QuestionProps): JSX.Element {
-    return (
-        <Form.Control
-            value={question.type}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setQuestion(question.id, {
-                    ...question,
-                    type: event.target.value
-                })
-            }
-        />
-    );
-}
-
 export function QuestionExpectedEditor({
     question,
     setQuestion
@@ -220,18 +203,6 @@ export function QuestionEditor({
                                         question={question}
                                         setQuestion={setQuestion}
                                     ></QuestionExpectedEditor>
-                                </Col>
-                            </Row>
-                            {/* Question Type */}
-                            <Row>
-                                <Col>
-                                    <p>Question Type</p>
-                                </Col>
-                                <Col>
-                                    <QuestionTypeEditor
-                                        question={question}
-                                        setQuestion={setQuestion}
-                                    ></QuestionTypeEditor>
                                 </Col>
                             </Row>
                             {/* Question Options */}
