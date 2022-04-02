@@ -3,10 +3,62 @@
 > react-scripts test "--coverage"
 
 PASS src/nested.test.ts
+PASS src/quizzer/Quizzer.test.tsx
+  ● Console
+
+    console.error
+      TypeError: Cannot read properties of undefined (reading 'disabled')
+          at typeImplementation (/home/runner/work/tasks/tasks/node_modules/@testing-library/user-event/dist/type/typeImplementation.js:23:15)
+          at Object.type (/home/runner/work/tasks/tasks/node_modules/@testing-library/user-event/dist/type/index.js:27:60)
+          at Object.<anonymous> (/home/runner/work/tasks/tasks/src/quizzer/Quizzer.test.tsx:163:19)
+          at Promise.then.completed (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/utils.js:391:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/utils.js:316:10)
+          at _callCircusTest (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/run.js:218:40)
+          at _runTest (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/run.js:155:3)
+          at _runTestsForDescribeBlock (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/run.js:66:9)
+          at _runTestsForDescribeBlock (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/run.js:60:9)
+          at run (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/run.js:25:3)
+          at runAndTransformResultsToJestFormat (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+          at jestAdapter (/home/runner/work/tasks/tasks/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+          at runTestInternal (/home/runner/work/tasks/tasks/node_modules/jest-runner/build/runTest.js:389:16)
+          at runTest (/home/runner/work/tasks/tasks/node_modules/jest-runner/build/runTest.js:475:34)
+
+
+    console.error
+      Warning: Received NaN for the `value` attribute. If this is expected, cast the value to a string.
+          at input
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/FormControl.js:27:3
+          at div
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/Col.js:72:8
+          at div
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/Row.js:22:3
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/FormGroup.js:19:3
+          at div
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at /home/runner/work/tasks/tasks/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/tasks/tasks/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at AddQuizModal (/home/runner/work/tasks/tasks/src/quizzer-components/AddQuizModal.tsx:6:5)
+          at div
+          at div
+          at Quizzer (/home/runner/work/tasks/tasks/src/quizzer/Quizzer.tsx:16:35)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3492:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:9172:5)
+      at prepareUpdate (node_modules/react-dom/cjs/react-dom.development.js:10215:10)
+
 PASS src/arrays.test.ts
 PASS src/objects.test.ts
 PASS src/components/StartAttempt.test.tsx
-PASS src/quizzer/Quizzer.test.tsx
 PASS src/components/TwoDice.test.tsx
 PASS src/quizzer-components/ShortAnswer.test.tsx
 PASS src/quizzer-components/MultipleChoiceQuestion.test.tsx
@@ -28,7 +80,7 @@ PASS src/App.test.tsx
 -----------------------------|---------|----------|---------|---------|-------------------
 File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------|---------|----------|---------|---------|-------------------
-All files                    |   97.06 |    94.35 |   94.81 |   96.98 |                   
+All files                    |   98.31 |    93.75 |   97.95 |   98.84 |                   
  src                         |     100 |      100 |     100 |     100 |                   
   App.tsx                    |     100 |      100 |     100 |     100 |                   
   arrays.ts                  |     100 |      100 |     100 |     100 |                   
@@ -58,16 +110,16 @@ All files                    |   97.06 |    94.35 |   94.81 |   96.98 |
   question.ts                |       0 |        0 |       0 |       0 |                   
  src/quizzer                 |     100 |       75 |     100 |     100 |                   
   Quizzer.tsx                |     100 |       75 |     100 |     100 | 36                
- src/quizzer-components      |   89.47 |    85.29 |   81.48 |   89.24 |                   
-  AddQuestionModal.tsx       |      80 |      100 |   66.66 |      80 | 46                
-  AddQuizModal.tsx           |      80 |      100 |   66.66 |      80 | 43                
+ src/quizzer-components      |   94.59 |    84.21 |   92.98 |   96.26 |                   
+  AddQuestionModal.tsx       |   85.71 |      100 |      75 |   85.71 | 58                
+  AddQuizModal.tsx           |     100 |      100 |     100 |     100 |                   
   MultipleChoiceQuestion.tsx |     100 |       80 |     100 |     100 | 25,38             
-  QuestionEditor.tsx         |   76.19 |      100 |   76.19 |   76.19 | 78,95,113,130,150 
+  QuestionEditor.tsx         |   85.71 |      100 |   85.71 |   85.71 | 78,96,113         
   QuestionList.tsx           |     100 |      100 |     100 |     100 |                   
-  QuestionView.tsx           |     100 |    83.33 |     100 |     100 | 16                
-  QuizEditor.tsx             |   94.11 |       50 |   88.88 |   93.33 | 79                
+  QuestionView.tsx           |     100 |      100 |     100 |     100 |                   
+  QuizEditor.tsx             |   93.54 |       50 |     100 |     100 | 42-62             
   QuizList.tsx               |     100 |      100 |     100 |     100 |                   
-  QuizView.tsx               |   81.81 |      100 |   66.66 |   81.81 | 24,32             
+  QuizView.tsx               |     100 |      100 |     100 |     100 |                   
   ShortAnswer.tsx            |     100 |       90 |     100 |     100 | 36                
  src/quizzer_interfaces      |       0 |        0 |       0 |       0 |                   
   Quiz.ts                    |       0 |        0 |       0 |       0 |                   
@@ -75,7 +127,7 @@ All files                    |   97.06 |    94.35 |   94.81 |   96.98 |
 -----------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 23 passed, 23 total
-Tests:       160 passed, 160 total
+Tests:       164 passed, 164 total
 Snapshots:   0 total
-Time:        17.187 s
+Time:        17.153 s
 Ran all test suites.
