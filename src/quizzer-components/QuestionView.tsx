@@ -17,7 +17,12 @@ export function QuestionView({
         <Container>
             <Row>
                 <Col>
-                    <h3>{question.name}</h3>
+                    <h3 data-testid="question-name">{question.name}</h3>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <h6 data-testid="question-id">{question.id}</h6>
                 </Col>
             </Row>
             <Row>

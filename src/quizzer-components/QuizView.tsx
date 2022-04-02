@@ -53,6 +53,11 @@ export function QuizView({
                 </Col>
             </Row>
             <Row>
+                <Col>
+                    <h6>ID: {quiz.id}</h6>
+                </Col>
+            </Row>
+            <Row>
                 <p>{quiz.description}</p>
                 <p>Number of Questions: {quiz.questions.length}</p>
                 <p>

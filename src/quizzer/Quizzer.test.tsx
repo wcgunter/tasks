@@ -4,6 +4,7 @@ import { Quizzer } from "./Quizzer";
 import { Quiz } from "../quizzer_interfaces/Quiz";
 import premadeQuizzes from "../data/quizzer.json";
 import userEvent from "@testing-library/user-event";
+import { Question } from "../quizzer_interfaces/question";
 
 const quizzes = premadeQuizzes.map(
     (quiz): Quiz => ({
@@ -86,16 +87,23 @@ describe("Quizzer Tests", () => {
         });
         expect(deleteButton).toBeInTheDocument();
     });
-    test("Editing Quiz Title changes Quiz Title", () => {
+    test("Editing Quiz Title & Description changes Quiz Title & Description", () => {
         const editButton = screen.getAllByRole("button", {
             name: /Edit Mode/i
         })[0];
         editButton.click();
         const titlebox = screen.getByDisplayValue("Math Quiz");
         userEvent.type(titlebox, " Addition");
+        const descriptionbox = screen.getByDisplayValue(
+            "A quick quiz with math questions."
+        );
+        userEvent.type(descriptionbox, " Addition");
         const saveButton = screen.getByRole("button", { name: /Save/i });
         saveButton.click();
         expect(screen.getByText("Math Quiz Addition")).toBeInTheDocument();
+        expect(
+            screen.getByText("A quick quiz with math questions. Addition")
+        ).toBeInTheDocument();
     });
     test("Clicking delete removes the quiz", () => {
         const editButton = screen.getAllByRole("button", {
@@ -153,7 +161,37 @@ describe("Quizzer Tests", () => {
         openCloseButton.click();
         expect(screen.queryByText("new question name")).toBeInTheDocument();
     });
-    test("Clicking add quiz opens the modal and creates the quiz", () => {
+    test("Clicking add question opens the modal and creates the question with id", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Mode/i
+        })[0];
+        editButton.click();
+        const addQuestionButton = screen.getByRole("button", {
+            name: "Add New Question"
+        });
+        addQuestionButton.click();
+        expect(
+            screen.getByText("Question ID (default questions end at 6):")
+        ).toBeInTheDocument();
+        const questionID = screen.getByDisplayValue("7");
+        userEvent.type(questionID, "350");
+        const saveChangesButton = screen.getByRole("button", {
+            name: "Save New Question"
+        });
+        saveChangesButton.click();
+        const saveChanges2Button = screen.getByRole("button", {
+            name: "Save Quiz"
+        });
+        saveChanges2Button.click();
+        const openCloseButton = screen.getAllByRole("button", {
+            name: /Close Quiz/i
+        })[0];
+        openCloseButton.click();
+        expect(screen.getByText("ID: 7350")).toBeInTheDocument();
+        const inputBox = screen.getAllByRole("textbox");
+        userEvent.type(inputBox[18], "new question name");
+    });
+    test("Clicking add quiz opens the modal and creates the quiz with the ID", () => {
         const addQuizButton = screen.getByRole("button", {
             name: "Add New Quiz"
         });
@@ -161,11 +199,32 @@ describe("Quizzer Tests", () => {
         expect(
             screen.getByText("Quiz ID: (default quizzes are IDs 1 and 2)")
         ).toBeInTheDocument();
+        const questionID = screen.getByDisplayValue("3");
+        userEvent.type(questionID, "350");
         const saveChangesButton = screen.getByRole("button", {
             name: "Save New Quiz"
         });
         saveChangesButton.click();
+        expect(screen.getByText("ID: 3350")).toBeInTheDocument();
         expect(screen.getByText("Number of Questions: 0")).toBeInTheDocument();
+    });
+    test("Creating a new quiz with used ID does not create new quiz", () => {
+        const addQuizButton = screen.getByRole("button", {
+            name: "Add New Quiz"
+        });
+        addQuizButton.click();
+        expect(
+            screen.getByText("Quiz ID: (default quizzes are IDs 1 and 2)")
+        ).toBeInTheDocument();
+        const quizID = screen.getByDisplayValue("3");
+        userEvent.type(quizID, "{selectall}{delete}");
+        userEvent.type(quizID, "1");
+        const saveChangesButton = screen.getByRole("button", {
+            name: "Save New Quiz"
+        });
+        saveChangesButton.click();
+        expect(screen.getByText("ID: 1")).toBeInTheDocument();
+        expect(screen.getByText("Math Quiz")).toBeInTheDocument();
     });
     test("Editing a question actually edits the question", () => {
         const editButton = screen.getAllByRole("button", {
@@ -190,5 +249,68 @@ describe("Quizzer Tests", () => {
         expect(
             screen.getByText("What is 32 + 2?: Additional Details")
         ).toBeInTheDocument();
+    });
+    test("Unpublishing a question & filtering hides the question", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Mode/i
+        })[0];
+        editButton.click();
+        const publishSwitches = screen.getAllByTestId("publishedSwitch");
+        publishSwitches[0].click();
+        const saveChangesButton = screen.getByRole("button", {
+            name: "Save Quiz"
+        });
+        saveChangesButton.click();
+        const openCloseButton = screen.getAllByRole("button", {
+            name: /Close Quiz/i
+        })[0];
+        openCloseButton.click();
+        const filterButton = screen.getAllByRole("button", {
+            name: "Filter Published/Unpublished"
+        })[0];
+        filterButton.click();
+        expect(screen.queryByText("Question 1")).not.toBeInTheDocument();
+    });
+    test("Moving questions up and down works", () => {
+        const editButton = screen.getAllByRole("button", {
+            name: /Edit Mode/i
+        })[0];
+        editButton.click();
+        const moveUpButton = screen.getAllByRole("button", {
+            name: "Move Question Up"
+        });
+        const moveDownButton = screen.getAllByRole("button", {
+            name: "Move Question Down"
+        });
+        moveDownButton[0].click();
+        moveUpButton[2].click();
+        const saveButton = screen.getByRole("button", {
+            name: "Save Quiz"
+        });
+        saveButton.click();
+        const openButton = screen.getAllByRole("button", {
+            name: "Open/Close Quiz"
+        })[0];
+        openButton.click();
+        const questionNames = screen.getAllByTestId("question-name");
+        expect(questionNames[0].textContent).toBe("Question 2");
+        expect(questionNames[1].textContent).toBe("Question 3");
+        expect(questionNames[2].textContent).toBe("Question 1");
+    });
+    test("Moving questions up and down works", () => {
+        const openButton = screen.getAllByRole("button", {
+            name: "Open/Close Quiz"
+        })[0];
+        openButton.click();
+        const inputBox = screen.getAllByRole("textbox");
+        userEvent.type(inputBox[0], "34");
+        expect(screen.getByText(/✔️/i)).toBeInTheDocument();
+        expect(screen.getByText("Current Points: 4")).toBeInTheDocument();
+        userEvent.type(inputBox[0], "{selectall}{delete}");
+        expect(screen.getByText("Current Points: 0")).toBeInTheDocument();
+        const select = screen.getAllByRole("combobox");
+        userEvent.selectOptions(select[0], "False");
+        expect(screen.getByText(/✔️/i)).toBeInTheDocument();
+        expect(screen.getByText("Current Points: 4")).toBeInTheDocument();
     });
 });

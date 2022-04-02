@@ -142,6 +142,7 @@ export function QuestionPublishedEditor({
 }: QuestionProps): JSX.Element {
     return (
         <Form.Check
+            data-testid="publishedSwitch"
             type="switch"
             id="is-published-check"
             label="Published?"
