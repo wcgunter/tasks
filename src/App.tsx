@@ -52,6 +52,7 @@ function App(): JSX.Element {
                 <li>Users can add a new quiz</li>
                 <li>Users can add a new quiz question</li>
                 <li>Users can clear out their existing answers for a quiz</li>
+                <li>Users can reorder quiz questions</li>
             </ul>
             <img src="https://i.imgur.com/1yAc0ir.png"></img>
             <header className="App-header">

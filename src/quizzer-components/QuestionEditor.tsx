@@ -142,6 +142,7 @@ export function QuestionPublishedEditor({
 }: QuestionProps): JSX.Element {
     return (
         <Form.Check
+            data-testid="publishedSwitch"
             type="switch"
             id="is-published-check"
             label="Published?"
@@ -158,10 +159,14 @@ export function QuestionPublishedEditor({
 
 export function QuestionEditor({
     questions,
-    setQuestions
+    setQuestions,
+    MoveQuestionUp,
+    MoveQuestionDown
 }: {
     questions: Question[];
     setQuestions: (questions: Question[]) => void;
+    MoveQuestionUp: (question: Question) => void;
+    MoveQuestionDown: (question: Question) => void;
 }): JSX.Element {
     function setQuestion(id: number, newQuestion: Question) {
         setQuestions(
@@ -260,6 +265,30 @@ export function QuestionEditor({
                                         question={question}
                                         setQuestion={setQuestion}
                                     ></QuestionPublishedEditor>
+                                </Col>
+                            </Row>
+                            {/* Move Question Up */}
+                            <Row>
+                                <Col>
+                                    <Button
+                                        variant="primary"
+                                        onClick={() => MoveQuestionUp(question)}
+                                    >
+                                        Move Question Up
+                                    </Button>
+                                </Col>
+                            </Row>
+                            {/* Move Question Down */}
+                            <Row>
+                                <Col>
+                                    <Button
+                                        variant="primary"
+                                        onClick={() =>
+                                            MoveQuestionDown(question)
+                                        }
+                                    >
+                                        Move Question Down
+                                    </Button>
                                 </Col>
                             </Row>
                             {/* Delete Question */}

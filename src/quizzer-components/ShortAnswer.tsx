@@ -42,7 +42,7 @@ export function ShortAnswer({
     return (
         <div>
             <h6>Short Answer Question</h6>
-            <Form.Group controlId="formGivenAnswer">
+            <Form.Group>
                 <Form.Label>Check Answer</Form.Label>
                 <Form.Control
                     value={givenAnswer}
