@@ -52,7 +52,7 @@ describe("Quizzer - Multiple Choice Tests", () => {
         expect(points === 4);
     });
     points = 0;
-    test("Can choose the correct answer and then incorrect", () => {
+    test("Can choose the correct answer and then incorrect, make sure points get added and removed", () => {
         render(
             <MultipleChoiceQuestion
                 expectedAnswer="2"
@@ -65,6 +65,7 @@ describe("Quizzer - Multiple Choice Tests", () => {
         userEvent.selectOptions(select, "2");
         expect(screen.getByText(/✔️/i)).toBeInTheDocument();
         expect(screen.queryByText(/❌/i)).not.toBeInTheDocument();
+        expect(points === 4);
         userEvent.selectOptions(select, "3");
         expect(screen.getByText(/❌/i)).toBeInTheDocument();
         expect(screen.queryByText(/✔️/i)).not.toBeInTheDocument();
@@ -85,5 +86,27 @@ describe("Quizzer - Multiple Choice Tests", () => {
         expect(screen.getByText(/✔️/i)).toBeInTheDocument();
         expect(screen.queryByText(/❌/i)).not.toBeInTheDocument();
         expect(points === 4);
+    });
+    test("Can reset answer successfully", () => {
+        render(
+            <MultipleChoiceQuestion
+                expectedAnswer="Beta"
+                options={["Alpha", "Beta", "Gamma"]}
+                addPoints={addPoints}
+                points={questionPoints}
+            />
+        );
+        const select = screen.getByRole("combobox");
+        userEvent.selectOptions(select, "Beta");
+        expect(screen.getByText(/✔️/i)).toBeInTheDocument();
+        expect(screen.queryByText(/❌/i)).not.toBeInTheDocument();
+        expect(points === 4);
+        const resetButton = screen.getAllByRole("button", {
+            name: "Reset Answer"
+        })[0];
+        resetButton.click();
+        expect(screen.getByText(/❌/i)).toBeInTheDocument();
+        expect(screen.queryByText(/✔️/i)).not.toBeInTheDocument();
+        expect(points === 0);
     });
 });

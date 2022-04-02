@@ -95,4 +95,45 @@ describe("ShortAnswer Component Tests", () => {
         expect(points === 0);
     });
     points = 0;
+    test("Entering a right answer and then a wrong answer removes points earned", () => {
+        render(
+            <ShortAnswer
+                expectedAnswer="Hello"
+                points={questionPoints}
+                addPoints={addPoints}
+            />
+        );
+        const inputBox = screen.getByRole("textbox");
+        userEvent.type(inputBox, "Hello");
+        expect(screen.getByText(/✔️/i)).toBeInTheDocument();
+        expect(screen.queryByText(/❌/i)).not.toBeInTheDocument();
+        expect(points === 4);
+        userEvent.type(inputBox, "{selectall}{delete}");
+        userEvent.type(inputBox, "98");
+        expect(screen.getByText(/❌/i)).toBeInTheDocument();
+        expect(screen.queryByText(/✔️/i)).not.toBeInTheDocument();
+        expect(points === 0);
+    });
+    points = 0;
+    test("Hitting reset answer goes back to default selection and also removes points earned (if applicable)", () => {
+        render(
+            <ShortAnswer
+                expectedAnswer="Hello"
+                points={questionPoints}
+                addPoints={addPoints}
+            />
+        );
+        const inputBox = screen.getByRole("textbox");
+        const resetButton = screen.getAllByRole("button", {
+            name: "Reset Answer"
+        })[0];
+        userEvent.type(inputBox, "Hello");
+        expect(screen.getByText(/✔️/i)).toBeInTheDocument();
+        expect(screen.queryByText(/❌/i)).not.toBeInTheDocument();
+        expect(points === 4);
+        resetButton.click();
+        expect(screen.getByText(/❌/i)).toBeInTheDocument();
+        expect(screen.queryByText(/✔️/i)).not.toBeInTheDocument();
+        expect(points === 0);
+    });
 });

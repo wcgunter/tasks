@@ -37,10 +37,6 @@ export function QuizEditor({
         changeEditing();
     }
 
-    function cancel() {
-        changeEditing();
-    }
-
     function addQuestion(newQuestion: Question) {
         const existing = questions.find(
             (question: Question): boolean => question.id === newQuestion.id
@@ -92,7 +88,7 @@ export function QuizEditor({
                     {/*Create New Question Modal*/}
                     <div>
                         <Button
-                            variant="success"
+                            variant="info"
                             className="m-4"
                             onClick={handleShowAddModal}
                         >
@@ -104,19 +100,15 @@ export function QuizEditor({
                             addQuestion={addQuestion}
                         ></AddQuestionModal>
                     </div>
-                    {/* Save/Cancel */}
+                    {/* Save/Cancel/Delete Buttons */}
                     <Button onClick={save} variant="success" className="me-4">
-                        Save
-                    </Button>
-                    <Button onClick={cancel} variant="warning" className="me-5">
-                        Cancel
+                        Save Quiz
                     </Button>
                     <Button
                         onClick={() => deleteQuiz(quiz.id)}
                         variant="danger"
-                        className="me-8"
                     >
-                        Delete
+                        Delete Quiz
                     </Button>
                 </Col>
             </Row>

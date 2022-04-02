@@ -55,15 +55,25 @@ export function QuizView({
             <Row>
                 <p>{quiz.description}</p>
                 <p>Number of Questions: {quiz.questions.length}</p>
+                <p>
+                    Possible Points:{" "}
+                    {quiz.questions.reduce(
+                        (currentTotal: number, q: Question) =>
+                            currentTotal + q.points,
+                        0
+                    )}
+                </p>
             </Row>
             <Row>
                 <Button onClick={flipVisibility}>Open/Close Quiz</Button>
-                <Button onClick={changeEditing}>Edit Mode</Button>
+                <Button onClick={changeEditing} variant="outline-danger">
+                    Edit Mode
+                </Button>
             </Row>
             {visible && (
                 <Row>
-                    <p>Current Points: {points}, Possible Points: TBD</p>
-                    <Button onClick={flipShowUnPublished}>
+                    <p>Current Points: {points}</p>
+                    <Button onClick={flipShowUnPublished} variant="info">
                         Filter Published/Unpublished
                     </Button>
                     <QuestionList

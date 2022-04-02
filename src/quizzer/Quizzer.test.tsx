@@ -79,11 +79,11 @@ describe("Quizzer Tests", () => {
         editButton.click();
         const inputBox = screen.getAllByRole("textbox");
         expect(inputBox).toHaveLength(5 * quizzes[0].questions.length + 2);
-        const saveButton = screen.getByRole("button", { name: /Save/i });
+        const saveButton = screen.getByRole("button", { name: "Save Quiz" });
         expect(saveButton).toBeInTheDocument();
-        const cancelButton = screen.getByRole("button", { name: /Cancel/i });
-        expect(cancelButton).toBeInTheDocument();
-        const deleteButton = screen.getByRole("button", { name: "Delete" });
+        const deleteButton = screen.getByRole("button", {
+            name: "Delete Quiz"
+        });
         expect(deleteButton).toBeInTheDocument();
     });
     test("Editing Quiz Title changes Quiz Title", () => {
@@ -97,46 +97,16 @@ describe("Quizzer Tests", () => {
         saveButton.click();
         expect(screen.getByText("Math Quiz Addition")).toBeInTheDocument();
     });
-    test("Clicking Cancel leaves editing mode, does not save", () => {
-        const editButton = screen.getAllByRole("button", {
-            name: /Edit Mode/i
-        })[0];
-        editButton.click();
-        const titlebox = screen.getByDisplayValue("Math Quiz");
-        userEvent.type(titlebox, " Addition");
-        const cancelButton = screen.getAllByRole("button", {
-            name: /Cancel/i
-        })[0];
-        cancelButton.click();
-        expect(screen.getByText("Math Quiz")).toBeInTheDocument();
-    });
     test("Clicking delete removes the quiz", () => {
         const editButton = screen.getAllByRole("button", {
             name: /Edit Mode/i
         })[0];
         editButton.click();
         const deleteButton = screen.getByRole("button", {
-            name: "Delete"
+            name: "Delete Quiz"
         });
         deleteButton.click();
         expect(screen.queryByText("Math Quiz")).not.toBeInTheDocument();
-    });
-    test("Clicking delete question removes the question", () => {
-        const editButton = screen.getAllByRole("button", {
-            name: /Edit Mode/i
-        })[0];
-        editButton.click();
-        const deleteButton = screen.getAllByRole("button", {
-            name: "Delete Question"
-        })[0];
-        deleteButton.click();
-        const saveButton = screen.getByRole("button", { name: /Save/i });
-        saveButton.click();
-        const openCloseButton = screen.getAllByRole("button", {
-            name: /Close Quiz/i
-        })[0];
-        openCloseButton.click();
-        expect(screen.queryByText("What is 32 + 2?")).not.toBeInTheDocument();
     });
     test("Clicking delete question removes the question", () => {
         const editButton = screen.getAllByRole("button", {
@@ -174,7 +144,7 @@ describe("Quizzer Tests", () => {
         const inputBox = screen.getAllByRole("textbox");
         userEvent.type(inputBox[18], "new question name");
         const saveChanges2Button = screen.getByRole("button", {
-            name: "Save"
+            name: "Save Quiz"
         });
         saveChanges2Button.click();
         const openCloseButton = screen.getAllByRole("button", {
@@ -207,7 +177,7 @@ describe("Quizzer Tests", () => {
         const questionBody = screen.getByDisplayValue("What is 32 + 2?");
         userEvent.type(questionBody, ": Additional Details");
         const saveChangesButton = screen.getByRole("button", {
-            name: "Save"
+            name: "Save Quiz"
         });
         saveChangesButton.click();
         const openCloseButton = screen.getAllByRole("button", {
