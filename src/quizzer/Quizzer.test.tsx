@@ -4,7 +4,6 @@ import { Quizzer } from "./Quizzer";
 import { Quiz } from "../quizzer_interfaces/Quiz";
 import premadeQuizzes from "../data/quizzer.json";
 import userEvent from "@testing-library/user-event";
-import { Question } from "../quizzer_interfaces/question";
 
 const quizzes = premadeQuizzes.map(
     (quiz): Quiz => ({
@@ -79,7 +78,7 @@ describe("Quizzer Tests", () => {
         })[0];
         editButton.click();
         const inputBox = screen.getAllByRole("textbox");
-        expect(inputBox).toHaveLength(5 * quizzes[0].questions.length + 2);
+        expect(inputBox).toHaveLength(4 * quizzes[0].questions.length + 2);
         const saveButton = screen.getByRole("button", { name: "Save Quiz" });
         expect(saveButton).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
@@ -132,34 +131,6 @@ describe("Quizzer Tests", () => {
         })[0];
         openCloseButton.click();
         expect(screen.queryByText("What is 32 + 2?")).not.toBeInTheDocument();
-    });
-    test("Clicking add question opens the modal and creates the question", () => {
-        const editButton = screen.getAllByRole("button", {
-            name: /Edit Mode/i
-        })[0];
-        editButton.click();
-        const addQuestionButton = screen.getByRole("button", {
-            name: "Add New Question"
-        });
-        addQuestionButton.click();
-        expect(
-            screen.getByText("Question ID (default questions end at 6):")
-        ).toBeInTheDocument();
-        const saveChangesButton = screen.getByRole("button", {
-            name: "Save New Question"
-        });
-        saveChangesButton.click();
-        const inputBox = screen.getAllByRole("textbox");
-        userEvent.type(inputBox[18], "new question name");
-        const saveChanges2Button = screen.getByRole("button", {
-            name: "Save Quiz"
-        });
-        saveChanges2Button.click();
-        const openCloseButton = screen.getAllByRole("button", {
-            name: /Close Quiz/i
-        })[0];
-        openCloseButton.click();
-        expect(screen.queryByText("new question name")).toBeInTheDocument();
     });
     test("Clicking add question opens the modal and creates the question with id", () => {
         const editButton = screen.getAllByRole("button", {
