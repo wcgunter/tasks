@@ -58,12 +58,14 @@ export function QuizView({
             </Row>
             <Row>
                 <Button onClick={flipVisibility}>Open/Close Quiz</Button>
-                <Button onClick={changeEditing}>Edit Mode</Button>
+                <Button onClick={changeEditing} variant="outline-danger">
+                    Edit Mode
+                </Button>
             </Row>
             {visible && (
                 <Row>
                     <p>Current Points: {points}, Possible Points: TBD</p>
-                    <Button onClick={flipShowUnPublished}>
+                    <Button onClick={flipShowUnPublished} variant="info">
                         Filter Published/Unpublished
                     </Button>
                     <QuestionList

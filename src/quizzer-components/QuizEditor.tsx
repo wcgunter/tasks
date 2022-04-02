@@ -92,7 +92,7 @@ export function QuizEditor({
                     {/*Create New Question Modal*/}
                     <div>
                         <Button
-                            variant="success"
+                            variant="info"
                             className="m-4"
                             onClick={handleShowAddModal}
                         >
@@ -104,19 +104,18 @@ export function QuizEditor({
                             addQuestion={addQuestion}
                         ></AddQuestionModal>
                     </div>
-                    {/* Save/Cancel */}
+                    {/* Save/Cancel/Delete Buttons */}
                     <Button onClick={save} variant="success" className="me-4">
-                        Save
+                        Save Quiz
                     </Button>
-                    <Button onClick={cancel} variant="warning" className="me-5">
-                        Cancel
+                    <Button onClick={cancel} variant="warning" className="me-4">
+                        Cancel Quiz
                     </Button>
                     <Button
                         onClick={() => deleteQuiz(quiz.id)}
                         variant="danger"
-                        className="me-8"
                     >
-                        Delete
+                        Delete Quiz
                     </Button>
                 </Col>
             </Row>

@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, Form, Container, Row, Col } from "react-bootstrap";
+import { ListGroup, Form, Container, Row, Col, Button } from "react-bootstrap";
 import { Question } from "../quizzer_interfaces/question";
 
 interface QuestionProps {
@@ -34,7 +34,7 @@ export function QuestionDeleteEditor({
     questions: Question[];
 }): JSX.Element {
     return (
-        <button
+        <Button
             onClick={() =>
                 setQuestions(
                     questions.filter(
@@ -43,9 +43,10 @@ export function QuestionDeleteEditor({
                     )
                 )
             }
+            variant="danger"
         >
             Delete Question
-        </button>
+        </Button>
     );
 }
 
