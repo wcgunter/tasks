@@ -37,6 +37,24 @@ export function QuizEditor({
         changeEditing();
     }
 
+    function moveQuestionUp(question: Question) {
+        const index = questions.indexOf(question);
+        if (index === 0) return;
+        const newQuestions = [...questions];
+        newQuestions.splice(index, 1);
+        newQuestions.splice(index - 1, 0, question);
+        setQuestions(newQuestions);
+    }
+
+    function moveQuestionDown(question: Question) {
+        const index = questions.indexOf(question);
+        if (index === questions.length - 1) return;
+        const newQuestions = [...questions];
+        newQuestions.splice(index, 1);
+        newQuestions.splice(index + 1, 0, question);
+        setQuestions(newQuestions);
+    }
+
     function addQuestion(newQuestion: Question) {
         const existing = questions.find(
             (question: Question): boolean => question.id === newQuestion.id
@@ -84,6 +102,8 @@ export function QuizEditor({
                     <QuestionEditor
                         questions={questions}
                         setQuestions={setQuestions}
+                        MoveQuestionUp={moveQuestionUp}
+                        MoveQuestionDown={moveQuestionDown}
                     ></QuestionEditor>
                     {/*Create New Question Modal*/}
                     <div>
