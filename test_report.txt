@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 PASS src/nested.test.ts
-PASS src/quizzer/Quizzer.test.tsx
+PASS src/quizzer/Quizzer.test.tsx (5.423 s)
   ● Console
 
     console.error
@@ -129,5 +129,5 @@ All files                    |   98.31 |    93.75 |   97.95 |   98.84 |
 Test Suites: 23 passed, 23 total
 Tests:       164 passed, 164 total
 Snapshots:   0 total
-Time:        17.153 s
+Time:        19.891 s
 Ran all test suites.
